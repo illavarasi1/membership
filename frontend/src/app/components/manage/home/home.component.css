@@ -1,0 +1,88 @@
+.info-card {
+  display: flex;
+  align-items: left;
+  padding:5px 10px;
+  margin: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  width: 350px;
+}
+
+.info-card-icon {
+  font-size: 1.5rem;
+  margin-right: 15px;
+  padding:  15px;
+  border-radius: 5px;
+  color: #fff; /* Icon color */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bttn{
+  font-size: 34px;
+}
+
+.bg-primary {
+  background-color: #007bff; /* Blue */
+}
+
+.bg-danger {
+  background-color: #dc3545; /* Red */
+}
+
+.bg-warning {
+  background-color: #ffc107; /* Yellow */
+  color: #212529; /* Black text for contrast */
+}
+
+.bg-success {
+  background-color: #28a745; /* Green */
+}
+
+.bg-info {
+  background-color: #17a2b8; /* Teal */
+}
+
+.bg-secondary {
+  background-color: #6c757d; /* Gray */
+}
+
+.info-card-content h5 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.info-card-content p {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #555;
+}
+img{
+  width: 50px; /* Adjust size */
+  height: 50px; /* Adjust size */
+  border-radius: 2px; /* Makes it circular */
+  /* border: 2px solid #ddd; Optional border */
+  object-fit: cover; /* Ensures the image is cropped properly */
+  /* box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); Optional shadow */
+}
+/* .full{
+  color: rgb(19, 19, 255);
+}
+.full:hover{
+  color: darkblue;
+} */
+ .numb{
+  color: rgb(143, 140, 140);
+ }
+ /* .tota{
+  font-size: 14px;
+ } */
+  .card-header{
+    background-color: white;
+  }
+  h3{
+    margin-top: 8px;
+  }

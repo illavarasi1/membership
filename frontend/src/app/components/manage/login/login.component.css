@@ -1,0 +1,114 @@
+.login-box {
+    width: 380px;
+    margin: 7% auto;
+ margin-top: 15px;
+    background: #fff;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    border-radius: 10px;
+  }
+  
+  .login-logo a {
+    
+    font-size: 24px;
+  }
+  .logo1{
+    text-align: center;
+    margin-top: 10%;
+    font-size: 30px;
+    color: rgb(94, 91, 91);
+    font-weight: 200;
+    
+  }
+  .logo{
+    text-align: center;
+    font-size: 30px;
+    color: rgb(94, 91, 91);
+    font-weight: 200;
+  }
+  
+  .card {
+    border: none;
+  }
+  
+  .card-body {
+    padding: 20px;
+  }
+  
+  .login-box-msg {
+    font-size: 18px;
+    margin-bottom: 20px;
+    text-align: center;
+    color:rgb(94, 91, 91); ;
+  }
+  
+  .input-group {
+    margin-bottom: 15px;
+  }
+  
+  .input-group-text {
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+  }
+  
+  .btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+  }
+  
+  .btn-block {
+    width: 100%;
+  }
+  
+  .icheck-primary input[type="checkbox"]:checked ~ .icheck-primary-label::before {
+    background: #28a745;
+    border-color: #28a745;
+  }
+  .icheck-primary {
+    margin-top: 10px; /* Adjust the space above the checkbox */
+    margin-left: 5px; /* Adjust the space to the left of the checkbox */
+  }
+  
+  .icheck-primary input[type="checkbox"] {
+    margin-right: 10px; 
+    
+  }
+  
+  .icheck-primary label {
+    font-size: 14px; /* Adjust font size for better readability */
+  }
+  
+  /* Optionally, adjust the gap between checkbox and button */
+  .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 15px; /* Adjust overall gap between elements */
+  }
+  .icheck-primary input[type="checkbox"] {
+    transform: scale(1.5);  /* Scale the checkbox by 1.5 times */
+    margin-right: 10px; /* Keep space between checkbox and label */
+  }
+  label {
+    color: grey;
+  }
+  .input-group {
+    position: relative;
+  }
+  
+  .input-group-text {
+    position: absolute;
+    top: 50%;
+    right: 10px; /* Space from the left edge */
+    transform: translateY(-50%); /* Center the icon vertically */
+    z-index: 1; /* Ensure icon appears on top of the input */
+  }
+  
+  /* Adjust input field padding to make space for the icon */
+  .form-control {
+    padding-left: 30px; /* Adds space for the icon inside the input */
+  }
+  
+  /* Optional: You can also adjust the size of the icon */
+  .input-group-text span {
+    font-size: 18px; /* Adjust the size of the icon as needed */
+  }

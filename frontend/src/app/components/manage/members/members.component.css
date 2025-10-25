@@ -1,0 +1,52 @@
+.even-row {
+    background-color: rgb(227, 227, 227); /* or any other desired color */
+  }
+  
+  .odd-row {
+    background-color: white; /* or any other desired color */
+   
+  }
+td{
+    padding: 10px;
+    font-size: 16px;
+}
+.action-button {
+  margin: 0 4px;
+  color: white; /* Ensures the icons are visible on colored backgrounds */
+}
+
+.view-button {
+  background-color: #0097a7; /* Customize the color as needed */
+border-radius: 0;
+}
+
+.edit-button {
+  background-color: #1976d2; /* Customize the color as needed */
+  border-radius: 0;
+}
+
+.delete-button {
+  background-color: #d32f2f; /* Customize the color as needed */
+  border-radius: 0;
+}
+.table-responsive {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 768px) {
+  .table-responsive table, 
+  .table-responsive th, 
+  .table-responsive td {
+    display: block;
+    width: 100%;
+  }
+
+  .table-responsive th, .table-responsive td {
+    text-align: left;
+  }
+
+  .action-button {
+    margin-right: 8px;
+  }
+}

@@ -1,0 +1,28 @@
+.blue-background{
+    background-color: rgb(65, 65, 238); /* Set the background color */
+color:rgb(244, 244, 244);
+font-size: 18px;
+padding: 10px;
+}
+.ship{
+    color:rgb(78, 77, 77);
+}
+.alert {
+    border-radius: 0.25rem;
+}
+
+.alert-success {
+    background-color:green;
+    border-color: #c3e6cb;
+    color: white;
+    font-size: medium;
+    border-radius: 5px;
+}
+
+.alert-danger {
+    background-color: red;
+    border-color: #f5c6cb;
+    color: white;
+    font-size: medium;
+    border-radius: 5px;
+}

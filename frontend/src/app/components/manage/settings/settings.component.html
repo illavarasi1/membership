@@ -1,0 +1,90 @@
+<p class="p-3" style="font-size: 25px;">Settings</p>
+<section class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card card-primary">
+          <div class="card-header">
+            <h3 class="card-title"><i class="fas fa-cogs"></i> System Settings</h3>
+          </div>
+
+          <!-- Success/Error messages -->
+          <div *ngIf="successMessage" class="alert alert-success mt-2">{{ successMessage }}
+            <button type="button" class="close" (click)="successMessage = ''" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}
+            <button type="button" class="close" (click)="errorMessage = ''" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div *ngIf="successMessagePassword" class="alert alert-success">{{ successMessagePassword }}
+            
+          </div>
+          <div *ngIf="errorMessagePassword" class="alert alert-danger">{{ errorMessagePassword }}</div>
+
+          <!-- Settings Form -->
+          <form   [formGroup]="settingsForm" (ngSubmit)="updateSettings()">
+            <div class="card-body">
+              <div class="form-group">
+                <label for="system_name">System Name:</label>
+      <input 
+        type="text" 
+        id="system_name" 
+        formControlName="system_name" 
+        class="form-control" 
+        
+        required>
+              </div>
+
+              <div class="form-group">
+                <label for="logo">Logo:</label>
+                <input type="file" id="logo" (change)="onFileChange($event)" class="form-control">
+
+              </div>
+
+              <div class="form-group">
+              
+                  <label for="currency">Currency:</label>
+                  <input 
+                    type="text" 
+                    id="currency" 
+                    formControlName="currency" 
+                    class="form-control" 
+                    
+                    required>
+               
+              </div>
+
+              <button type="submit" class="btn btn-primary mt-3 ml-2">Update Settings</button>
+            </div>
+          </form>
+
+          <!-- Password Change Form -->
+          <form [formGroup]="passwordForm" (ngSubmit)="changePassword()">
+            <div class="card-body">
+              <div class="form-group">
+                <label for="currentPassword">Current Password:</label>
+                <input type="password" id="currentPassword" formControlName="currentPassword" class="form-control" autocomplete="current-password" required>
+              </div>
+
+              <div class="form-group">
+                <label for="newPassword">New Password:</label>
+                <input type="password" id="newPassword" formControlName="newPassword" class="form-control" autocomplete="new-password" required>
+              </div>
+
+              <div class="form-group">
+                <label for="confirmPassword">Confirm Password:</label>
+                <input type="password" id="confirmPassword" formControlName="confirmPassword" class="form-control" autocomplete="confirm-Password"required>
+              </div>
+
+              <button type="submit" class="btn btn-primary mt-3 ml-2">Change Password</button>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

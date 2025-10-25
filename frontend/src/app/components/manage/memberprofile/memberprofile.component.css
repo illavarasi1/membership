@@ -1,0 +1,155 @@
+/* @media print {
+    body {
+      background: none;
+      padding: 0;
+    }
+  
+    .btn * {
+      visibility: hidden;
+    }
+  
+    .print-button {
+      display: none;
+    }
+  
+    .card-tools {
+      display: none;
+    }
+  
+    .card {
+      border: 2px solid #000;
+      border-radius: 10px;
+      margin: 20px;
+      padding: 20px;
+      box-shadow: 2px 2px 5px #888888;
+    }
+  
+    .card-body {
+      padding: 20px;
+    }
+  
+    .row {
+      display: flex;
+      justify-content: space-between;
+    }
+  
+    .col-md-5, .col-md-2 {
+      width: 45%;
+    }
+  
+    .img-thumbnail {
+      width: 100px;
+      height: 100px;
+    }
+    .card-title{
+      display: block;
+    }
+  }
+  .member-photo {
+    width: 150px;
+    height: 150px;
+   
+    object-fit: cover;
+  } */
+  
+/* @media print {
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #fff;
+  }
+
+  #memberProfile {
+    border: 2px solid black !important;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f8f9fa;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto; /* Center the profile */
+  /* }
+
+  #memberProfile h1 {
+    text-align: center;
+    color: #007bff;
+  }
+
+  #memberProfile p {
+    font-size: 14px;
+    margin: 10px 0;
+  }
+
+  img.member-photo {
+    display: block;
+    margin: 0 auto 20px;
+    width: 150px;
+    height: 150px; */ 
+    /* border: 5px solid #007bff;
+    border-radius: 50%; */
+  /* }
+  .col-md-5,
+  .col-md-2 {
+      width: 45%;
+  }
+
+  .btn, header, footer, .sidebar, .navbar {
+    display: none !important; /* Hide unnecessary elements */
+  /* }
+} */ 
+@media print {
+  body {
+    border: 2px solid #000; /* Black border */
+    border-radius: 10px; /* Rounded corners */
+    margin: 20px; /* Space around the content */
+    padding: 20px; /* Inner padding */
+    box-shadow: 2px 2px 5px #888888; /* Optional shadow for print aesthetics */
+    background-color: #fff; /* White background */
+  }
+
+  .btn * {
+      visibility: hidden;
+  }
+
+  .print-button {
+      display: none;
+  }
+
+  .card-tools {
+      display: none;
+  }
+
+  .card, #memberProfile {
+    border: 2px solid #000; /* Black border */
+    border-radius: 10px; /* Rounded corners */
+    margin: 20px; /* Space around the content */
+    padding: 20px; /* Inner padding */
+    box-shadow: 2px 2px 5px #888888; /* Optional shadow for print aesthetics */
+    background-color: #fff; /* White background */
+}
+  .card-body {
+      padding: 20px;
+  }
+
+  .row {
+      display: flex;
+      justify-content: space-between;
+  }
+
+  .col-md-5,
+  .col-md-2 {
+      width: 45%;
+  }
+.mb-3{
+  font-size: 10px;
+}
+  .img-thumbnail {
+      width: 100px;
+      height: 100px;
+      display: flex;
+      flex-direction: column;
+  }
+
+
+}
+

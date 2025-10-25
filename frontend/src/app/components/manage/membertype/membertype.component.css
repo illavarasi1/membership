@@ -1,0 +1,15 @@
+.even-row {
+    background-color: rgb(227, 227, 227); /* or any other desired color */
+  }
+  
+  .odd-row {
+    background-color: white; /* or any other desired color */
+   
+  }
+td{
+    padding: 10px;
+    font-size: 16px;
+}
+button{
+  border-radius: 4px;
+}

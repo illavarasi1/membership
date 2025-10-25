@@ -1,0 +1,93 @@
+<div  class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mt-2  mb-2 d-flex justify-content-between align-items-center">
+      <div class="col-sm-6">
+        <h1 class="m-0 text-dark fs-3 fw-normal  member-card">Member Profile</h1>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb d-flex justify-content-end">
+          <li class="breadcrumb-item text-primary fs-6"><a>Home</a></li>
+          <li class="breadcrumb-item active fs-6">Member Profile</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+<section class="content">
+  <div class="container-fluid">
+    <div class="card">
+      <div class="card-header d-flex justify-between">
+        <h3 class="card-title">Member Profile</h3>
+        <!-- Add Print Button -->
+        <div class="card-tools">
+            <button type="button" class="btn btn-tool  text-small" (click)=" printMembershipCard()">
+                <i class="fas fa-print"></i> Print
+            </button>
+            <!-- Add link to the print page -->
+            <a [routerLink]="['/admin/membershipcard/', id]" class="btn btn-tool  text-small">
+              <i class="fas fa-external-link-alt"></i> Membership Card
+            </a>
+        </div>
+    </div>
+      <div class="card-body"  id="memberProfile">
+            <div class="row">
+                <div class="col-md-5">
+                  <p class="mb-3"><strong>Membership Number:</strong> {{ memberDetails.membership_number }}</p>
+                  <p class="mb-3"><strong>Full Name:</strong> {{ memberDetails.fullname }}</p>
+                  <p class="mb-3"><strong>Date of Birth:</strong> {{ memberDetails.dob }}</p>
+                  <p class="mb-3"><strong>Gender:</strong> {{ memberDetails.gender }}</p>
+                  <p class="mb-3"><strong>Contact Number:</strong> {{ memberDetails.contact_number }}</p>
+                  <p class="mb-3"><strong>Email:</strong> {{ memberDetails.email }}</p>
+                </div>
+                <div class="col-md-5">
+                  <p class="mb-3"><strong>Address:</strong> {{ memberDetails.address }}</p>
+                  <p class="mb-3"><strong>Country:</strong> {{ memberDetails.country }}</p>
+                  <p class="mb-3"><strong>Postcode:</strong> {{ memberDetails.postcode }}</p>
+                  <p class="mb-3"><strong>Occupation:</strong> {{ memberDetails.occupation }}</p>
+                  <p class="mb-3"><strong>Membership Type:</strong> {{ memberDetails.membership_type?.type}}</p>
+                  <p class="mb-3"><strong>Status:</strong> {{ membershipStatus }}</p>
+                </div>
+                <div class="col-md-2">
+                  <!-- Display the photo if available, otherwise show a fallback message -->
+                  <div *ngIf="photoUrl; else noPhoto">
+                    <img [src]="photoUrl" alt="Member Photo" class="img-thumbnail" />
+                  </div>
+                  
+                  <ng-template #noPhoto>
+                    <p>No photo available</p>
+                  </ng-template>
+                  
+                </div>
+                <!-- <button (click)="showMembershipCard()">Membership Card</button> -->
+                <a [routerLink]="['/admin/membershipcard/', id]"  class="print-button">
+                  <button class="btn btn-info text-white"><i class="fas fa-id-card"></i> Membership Card</button>
+                </a>
+              </div>
+        </div>
+       
+      </div>
+    </div>
+  </section>
+</div>
+<!-- /.content-wrapper -->
+
+<!-- Control Sidebar -->
+<aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+</aside>
+<footer class="main-footer bg-light py-3">
+  <div class="container-fluid">
+    <div class="row align-items-center">
+      <!-- Left Content -->
+      <div class="col-md-6 col-12 text-center text-md-start">
+        <strong>&copy; {{ currentYear }} CodeAstro.com</strong> - All rights reserved.
+      </div>
+
+      <!-- Right Content -->
+      <div class="col-md-6 col-12 text-center text-md-end">
+        <b>Developed By</b> <a href="https://codeastro.com/" class="text-primary">CodeAstro</a>
+      </div>
+    </div>
+  </div>
+</footer>

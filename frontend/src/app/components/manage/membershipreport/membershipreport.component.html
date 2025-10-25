@@ -1,0 +1,58 @@
+<div class="container">
+<div class="membership-report">
+  <h3>Membership Report</h3>
+  <div class="report-form">
+    <h2>Membership Report</h2>
+    <div class="www">
+    <label for="createdAt">From Date:</label>
+    <input
+      type="date"
+      id="createdAt"
+      [(ngModel)]="createdAt"
+      required
+    />
+    </div>
+    <div class="www">
+    <label for="expiryDate">To Date:</label>
+    <input
+      type="date"
+      id="expiryDate"
+      [(ngModel)]="expiryDate"
+      required
+    />
+    </div>
+    <button class="btn btn-success" (click)="generateReport()">Generate Report</button>
+  </div>
+
+  <!-- Report Table -->
+  <div *ngIf="reportData.length > 0" class="report-table">
+    <!-- <h3>Report</h3> -->
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Membership Number</th>
+          <th>Full Name</th>
+          <th>Email</th>
+          <th>Type</th>
+          <th>Expires On</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let member of reportData">
+          <td>{{ member.membership_number }}</td>
+          <td>{{ member.fullname }}</td>
+          <td>{{ member.email }}</td>
+          <td>{{ member.membership_type && member.membership_type.type ? member.membership_type.type : 'Unknown' }}</td>
+
+          <!-- <td *ngIf="!member.membership_type">Unknown</td> -->
+          <td>{{ member.expiry_date ? (member.expiry_date | date) : 'New Member' }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <button class="btn btn-primary print-button" (click)="printReport()"><i class="fas fa-print"></i> Print Report</button>
+  </div>
+  <div *ngIf="reportData.length === 0 && (createdAt || expiryDate)" class="no-data-message">
+    <p>No data available for the selected date range.</p>
+  </div>
+</div>
+</div>

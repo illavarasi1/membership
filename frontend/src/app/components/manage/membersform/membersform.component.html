@@ -1,0 +1,204 @@
+<div class="content-wrapper">
+  @if(isEdit){
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mt-2  mb-2 d-flex justify-content-between align-items-center">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark fs-3 fw-normal">Edit Members</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb d-flex justify-content-end">
+              <li class="breadcrumb-item text-primary fs-6"><a>Home</a></li>
+              <li class="breadcrumb-item active fs-6">Edit Members</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+    }
+    @else{
+      <div class="content-header">
+        <div class="container-fluid">
+          <div class="row mt-2  mb-2 d-flex justify-content-between align-items-center">
+            <div class="col-sm-6">
+              <h1 class="m-0 text-dark fs-3 fw-normal">Add Members</h1>
+            </div>
+            <div class="col-sm-6">
+              <ol class="breadcrumb d-flex justify-content-end">
+                <li class="breadcrumb-item text-primary fs-6"><a>Home</a></li>
+                <li class="breadcrumb-item active fs-6">Add Members</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    }
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card card-primary">
+            <div class="card-header">
+              @if(isEdit){
+                <h3 class="card-title"><i class="fas fa-keyboard"></i>Edit Members Form</h3>
+              }
+              @else{
+              <h3 class="card-title"><i class="fas fa-keyboard"></i> Add Members Form</h3>
+              }
+            </div>
+            <!-- <div class="text-info">
+              Form Valid: {{ membersForm.valid }}
+            </div>
+            <div class="text-info" *ngFor="let controlName of membersForm.controls | keyvalue">
+              {{ controlName.key }} Valid: {{ controlName.value.valid }} - Touched: {{ controlName.value.touched }}
+            </div> -->
+            <form [formGroup]="membersForm" (ngSubmit)="add()" enctype="multipart/form-data">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <label for="fullname">Full Name</label>
+                    <input type="text" formControlName="fullname" class="form-control" required />
+                    <div *ngIf="membersForm.get('fullname')?.invalid && membersForm.get('fullname')?.touched" class="text-danger">
+                      Full Name is required
+                    </div>
+                  </div>
+
+                  <div class="col-sm-3">
+                    <label for="dob">Date of Birth</label>
+                    <input type="date" class="form-control" formControlName="dob" required />
+                    <div *ngIf="membersForm.get('dob')?.invalid && membersForm.get('dob')?.touched" class="text-danger">
+                      Date of Birth is required
+                    </div>
+                  </div>
+
+                  <div class="col-sm-3">
+                    <label for="gender">Gender</label>
+                    <select class="form-control" formControlName="gender" required>
+                      <option value="Male">Male</option>
+                      <option value="Female">Female</option>
+                      <option value="Other">Other</option>
+                    </select>
+                    <div *ngIf="membersForm.get('gender')?.invalid && membersForm.get('gender')?.touched" class="text-danger">
+                      Gender is required
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row mt-3">
+                  <div class="col-sm-6">
+                    <label for="contactNumber">Contact Number</label>
+                    <input type="tel" class="form-control" formControlName="contact_number" placeholder="Enter contact number" required />
+                    <div *ngIf="membersForm.get('contact_number')?.invalid && membersForm.get('contact_number')?.touched" class="text-danger">
+                      Contact Number is required and must be a number
+                    </div>
+                  </div>
+
+                  <div class="col-sm-6">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" placeholder="Enter email" formControlName="email" required />
+                    <div *ngIf="membersForm.get('email')?.invalid && membersForm.get('email')?.touched" class="text-danger">
+                      Valid Email is required
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row mt-3">
+                  <div class="col-sm-6">
+                    <label for="address">Address</label>
+                    <input type="text" class="form-control" formControlName="address" placeholder="Enter address" required />
+                    <div *ngIf="membersForm.get('address')?.invalid && membersForm.get('address')?.touched" class="text-danger">
+                      Address is required
+                    </div>
+                  </div>
+
+                  <div class="col-sm-6">
+                    <label for="country">Country</label>
+                    <input type="text" class="form-control" formControlName="country" placeholder="Enter country" required />
+                    <div *ngIf="membersForm.get('country')?.invalid && membersForm.get('country')?.touched" class="text-danger">
+                      Country is required
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row mt-3">
+                  <div class="col-sm-6">
+                    <label for="postcode">Postcode</label>
+                    <input type="text" class="form-control" formControlName="postcode" placeholder="Enter postcode" required />
+                    <div *ngIf="membersForm.get('postcode')?.invalid && membersForm.get('postcode')?.touched" class="text-danger">
+                      Postcode is required
+                    </div>
+                  </div>
+
+                  <div class="col-sm-6">
+                    <label for="occupation">Occupation</label>
+                    <input type="text" class="form-control" formControlName="occupation" placeholder="Enter occupation" required />
+                    <div *ngIf="membersForm.get('occupation')?.invalid && membersForm.get('occupation')?.touched" class="text-danger">
+                      Occupation is required
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row mt-3">
+                  <div class="col-sm-6">
+                    @if(isEdit){
+                      <div class="col-sm-6">
+                        <label for="photo">Member Photo</label>
+                        <input type="file" class="form-control-file" (change)="onFileChange($event)" />
+                        <div *ngIf="membersForm.get('photo')?.invalid && membersForm.get('photo')?.touched" class="text-danger">
+                          Member Photo is required
+                        </div>
+                      </div>
+                    }
+                    @else{
+                    <label for="membership_type">Membership Type</label>
+                    <select  id="membership_type"  class="form-control" (change)="onMembershipTypeChange($event)" formControlName="membership_type"  required>
+                      <option *ngFor="let type of membershipTypes" [value]="type._id">{{ type.type }} - {{ type.amount | currency }}</option>
+                    </select>
+                  }
+                    <div *ngIf="membersForm.get('membership_type')?.invalid && membersForm.get('membership_type')?.touched" class="text-danger">
+                      Membership Type is required
+                    </div>
+                  </div>
+                  <div class="col-sm-6" *ngIf="!isEdit">
+                    <label for="photo">Member Photo</label><br>
+                    <input type="file" class="form-control-file" (change)="onFileChange($event)" />
+                    <div *ngIf="membersForm.get('photo')?.invalid && membersForm.get('photo')?.touched" class="text-danger">
+                      Member Photo is required
+                    </div>
+                  </div>
+
+                 
+                
+                </div>
+              </div>
+
+              <div class="card-footer">
+                @if(isEdit){
+                  <button type="submit" class="btn btn-primary" [disabled]="!membersForm.valid">Submit</button>
+                }
+                @else{
+                <button type="submit" class="btn btn-primary" [disabled]="!membersForm.valid">Submit</button>
+                }
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<footer class="main-footer bg-light py-3">
+  <div class="container-fluid">
+    <div class="row align-items-center">
+      <!-- Left Content -->
+      <div class="col-md-6 col-12 text-center text-md-start">
+        <strong>&copy; {{ currentYear }} CodeAstro.com</strong> - All rights reserved.
+      </div>
+
+      <!-- Right Content -->
+      <div class="col-md-6 col-12 text-center text-md-end">
+        <b>Developed By</b> <a href="https://codeastro.com/" class="text-primary">CodeAstro</a>
+      </div>
+    </div>
+  </div>
+</footer>

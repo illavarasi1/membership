@@ -1,0 +1,91 @@
+.nav-link{
+    color: rgb(179, 178, 178);
+    padding-bottom: 10px;
+}
+.nav-icon{
+    font-size: 20px;
+    margin-right: 10px;
+}
+nav{
+    margin-left: 10px;
+}
+a{
+    text-align: left;
+    margin: 0;
+    padding: 0;
+}
+li{
+    margin-left: 10px;
+    padding-bottom: 10px;
+}
+.rotate {
+    transform: rotate(-90deg); /* This rotates it clockwise to point down */
+  transition: transform 0.3s ease; /* Smooth rotation */
+  }
+  mat-divider {
+    background-color: white; /* Adjust color for better visibility */
+    margin: 10px 0; /* Add some spacing around the divider */
+  }
+  /* Container styling for the brand link */
+.brand-link {
+    display: flex; /* To align items horizontally */
+    align-items: center; /* Vertically center items */
+    padding: 10px;
+    text-decoration: none;
+}
+
+/* Styling for the logo image */
+.brand-image {
+    width: 40px; /* Set width of the logo */
+    height: 40px; /* Set height of the logo */
+    border-radius: 50%; /* Make the image circular */
+    opacity: 0.8; /* Slightly transparent */
+    margin-right: 10px; /* Space between the image and text */
+}
+
+/* Styling for the brand text */
+.brand-text {
+    font-size: 1rem; /* Adjust font size */
+    font-weight: 300; /* Light font weight */
+    color: #ffffff; /* Text color */
+}
+/* Container for the entire user panel */
+.user-panel {
+    display: flex; /* Align image and info horizontally */
+    align-items: center; /* Vertically center the content */
+    padding: 15px 10px; /* Space inside the container */
+    background-color: #343a40; /* Background color (adjust as needed) */
+    border-radius: 8px; /* Optional: Rounds the corners of the container */
+}
+
+/* Styling for the image container */
+.user-panel .image {
+    margin-right: 10px; /* Space between image and info text */
+}
+
+/* Styling for the image itself */
+.user-panel .image img {
+    width: 45px; /* Set the size of the image */
+    height: 45px;
+    border-radius: 50%; /* Make the image circular */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Adds a slight shadow */
+    object-fit: cover; /* Ensures the image covers the circle */
+}
+
+/* Styling for the information section */
+.user-panel .info {
+    color: #ffffff; /* Text color */
+}
+
+/* Styling for the link */
+.user-panel .info a {
+    color: #ffffff; /* Link color */
+    font-weight: 500; /* Makes the name bold */
+    text-decoration: none; /* Removes underline */
+    font-size: 1rem; /* Adjust font size */
+}
+
+/* Optional: Add hover effect for the link */
+.user-panel .info a:hover {
+    color: #1e90ff; /* Change color on hover */
+}

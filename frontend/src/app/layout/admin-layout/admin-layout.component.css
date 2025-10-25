@@ -1,0 +1,37 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+mat-drawer {
+    width: 280px;
+    background-color: #0f172a;
+}
+
+mat-drawer-container {
+    height: 100%;
+}
+mat-drawer-content{
+    background-color:rgb(234, 234, 234);
+}
+.sidenav {
+    min-width: 280px; 
+    max-width: 280px;
+    background-color: #2c2f33;
+    color: white;
+    transition: margin 0.3s ease; 
+}
+
+.sidenav.collapsed {
+    width: 60px; /* Collapsed width */
+}
+
+.sidenav:hover .nav-link p,
+.sidenav:not(.collapsed) .nav-link p {
+    display: inline; /* Show label on hover */
+}
+
+.sidenav.collapsed .nav-link p {
+    display: none; /* Hide labels when collapsed */
+}

@@ -1,0 +1,133 @@
+<!-- Success Message -->
+<div *ngIf="successMessage" class="alert alert-success mt-2">
+  <div class="d-flex justify-content-between">
+ <div class="d-flex flex-column "><div class="d-flex"><i class="fa-solid fa-check"></i>Success</div>
+ <div> {{ successMessage }}</div>
+  </div>
+  <button type="button" class="close" (click)="successMessage = ''" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  </div>
+</div>
+
+<!-- Error Message -->
+<div *ngIf="errorMessage" class="alert alert-danger mt-2">
+  <div class="d-flex justify-content-between">
+    <div class="d-flex flex-column "><div class="d-flex"><i class="fa-solid fa-xmark"></i>Error</div>
+  <div>{{ errorMessage }}</div>
+  </div>
+  <button type="button" class="close" (click)="errorMessage = ''" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  </div>
+</div>
+<div class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+    <div class="wrapper">
+    <!-- nav -->
+    <!-- sidebar -->
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+        
+     <!-- pagetitle -->
+     @if(isEdit){
+     <h3 class="text-2xl font-500 p-4 ship" style="font-size: 1.6rem;">Edit Membership Type</h3>
+     }
+     @else{
+      <h3 class="text-2xl font-500 p-4 ship" style="font-size: 1.6rem;">Add Membership Type</h3>
+     }
+        <!-- Main content -->
+        <section class="content">
+          <div class="container-fluid">
+            <!-- Info boxes -->
+            <div class="row">
+            
+            <!-- left column --><!-- Visit codeastro.com for more projects -->
+            <div class="col-md-12">
+    
+        
+    
+  
+    
+                <!-- general form elements -->
+                <div class="card card-primary">
+                  <div class="card-header bg-primary text-white">
+                    @if(isEdit){
+                      <h3 class="card-title mt-2"><i class="fas fa-keyboard"></i> Edit Membership Type form</h3>
+                    }
+                    @else{
+                       <h3 class="card-title mt-2"><i class="fas fa-keyboard"></i> Add Membership Type form</h3>
+                      }
+                   
+                  </div>
+                  <mat-divider></mat-divider>
+                  <!-- /.card-header -->
+                  <!-- form start -->
+                  <form method="post" action="">
+                    <div class="card-body border-0 ">
+                    <div class="row">
+                    <div class="col-sm-6">
+                                        <label class="font-bold" for="membershipType">Membership Type</label>
+                                        <input type="text" class="form-control" [(ngModel)]="type" id="membershipType" name="membershipType" placeholder="Enter membership type" required>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label class="font-bold" for="membershipAmount">Amount</label>
+                                        <input type="number" class="form-control" [(ngModel)]="amount" id="membershipAmount" name="membershipAmount" placeholder="Enter membership type amount" required>
+                                    </div>
+                    </div>
+                    </div>
+                    <!-- /.card-body -->
+    
+                    <div class="card-footer">
+                      @if(isEdit){
+                        <button type="submit" class="btn btn-primary"  [disabled]="!type || !amount"  (click)="update()">Update</button>
+                      }
+                      @else{
+                        <button type="submit" class="btn btn-primary"  [disabled]="!type || !amount"  (click)="add()">Submit</button>
+                        }
+                      
+                    </div>
+                  </form>
+                </div>
+                <!-- /.card -->
+    
+              </div>
+              <!--/.col (left) -->
+    
+            </div>
+            <!-- /.row -->
+            <!-- Visit codeastro.com for more projects -->
+            
+          </div><!--/. container-fluid -->
+        </section>
+        <!-- /.content -->
+      </div>
+      <!-- /.content-wrapper -->
+    
+      <!-- Control Sidebar -->
+      <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+      </aside>
+      <!-- /.control-sidebar -->
+    
+      
+    </div>
+    <!-- Main Footer -->
+    <footer class="main-footer bg-light py-3">
+      <div class="container-fluid">
+        <div class="row align-items-center">
+          <!-- Left Content -->
+          <div class="col-md-6 col-12 text-center text-md-start">
+            <strong>&copy; {{ currentYear }} CodeAstro.com</strong> - All rights reserved.
+          </div>
+    
+          <!-- Right Content -->
+          <div class="col-md-6 col-12 text-center text-md-end">
+            <b>Developed By</b> <a href="https://codeastro.com/" class="text-primary">CodeAstro</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- ./wrapper -->
+    
+
+</div>

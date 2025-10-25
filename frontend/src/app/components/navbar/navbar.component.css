@@ -1,0 +1,20 @@
+mat-toolbar{
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #f7f7f7;
+}
+ul{
+    li{
+        list-style: none;
+    }
+}
+button{
+    border: 0;
+    outline: none;
+    background: transparent;
+}
+button mat-icon-button i {
+    font-size: 24px; /* Adjust icon size */
+    color: white;    /* Adjust icon color */
+  }

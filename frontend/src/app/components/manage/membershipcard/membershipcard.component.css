@@ -1,0 +1,271 @@
+/* body {
+    background: #222;
+    padding: 2rem;
+    font-family: helvetica;
+  }
+  
+  .card {
+    background: linear-gradient(36deg, rgba(192, 178, 195, 1) 0%, rgba(253, 243, 255, 1) 36%, rgba(246, 235, 248, 1) 64%, rgba(202, 187, 205, 1) 100%);
+    border-radius: 10px;
+    margin: auto;
+    width: 500px;
+    height: 280px;
+    box-shadow: 2px 5px 15px 5px #00000030;
+    display: flex;
+    flex-flow: column;
+    transition: all 1s;
+  }
+  
+  .card:hover {
+    box-shadow: 10px 10px 15px 5px #00000030;
+  }
+  
+  .title {
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row-reverse;
+    padding: 0.5rem 1.5rem;
+    text-transform: uppercase;
+    font-size: 12px;
+    color: #00000090;
+  }
+  .sep{
+    padding: 0.8rem 1.5rem 0;
+  }
+  .emboss {
+    
+    font-size: 18px;
+    color: black;
+    font-family: courier;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    
+  }
+  .emboss1{
+    padding: 0.8rem 1.5rem 0;
+    font-size: 18px;
+    color: black;
+    font-family: courier;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    
+  }
+  .emboss2 {
+    padding: 0.5rem 0.5rem 0 10rem;
+    font-size: 11px;
+    color: black;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .hologram {
+    width: 6.5rem;
+    height: 6.5rem;
+    float: right;
+    margin: -5rem 1.5rem 0 auto;
+  }
+  
+  .photo {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 1rem;
+    float: right;
+  }
+  
+.photo-container {
+  position: absolute;
+  margin-bottom: 20px;
+  bottom: 50px;
+  right: 40px;
+}
+.member-photo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+  .photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  #membershipCard {
+    position: relative;
+    padding: 15px;
+  } */
+/* .flexes{
+  right: 0;
+} */
+ /* Make sure this CSS is inside `membershipcard.component.css` */
+
+/* ::ng-deep {
+  @media print { */
+    /* Hide everything else on the page */
+    /* body * {
+      visibility: hidden;
+    } */
+
+    /* Show only the membership card */
+    /* #membershipCard {
+    visibility: visible !important;
+    position: absolute !important;
+      top: 0;
+      left: 0;
+      right: 0;
+      margin: auto; */
+      /* width: 300px; Adjust the width to match the card */
+    /* }
+  }
+} */
+.card {
+  background: rgb(192, 178, 195);
+  background: linear-gradient(36deg, rgba(192, 178, 195, 1) 0%, rgba(253, 243, 255, 1) 36%, rgba(246, 235, 248, 1) 64%, rgba(202, 187, 205, 1) 100%);
+  border-radius: 10px;
+  margin: auto;
+  width: 500px;
+  height: 280px;
+  box-shadow: 2px 5px 15px 5px #00000030;
+  display: flex;
+  flex-flow: column;
+  transition: all 1s;
+}
+
+.card:hover {
+  box-shadow: 10px 10px 15px 5px #00000030;
+}
+
+.emboss {
+  padding: 1rem 1.5rem 0 1.5rem;
+  font-size: 18px;
+  color: black;
+  font-family: courier;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.emboss2 {
+  padding: 1rem 1.5rem 0 10rem;
+  font-size: 11px;
+  color: black;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.hologram {
+  width: 6.5rem;
+  height: 6.5rem;
+  float: right;
+  margin-left: auto;
+  margin: -5rem 1.5rem 0 auto;
+}
+
+.print-btn {
+  margin-top: 20px;
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.print-btn:hover {
+  background-color: #45a049;
+}
+@media print {
+  body {
+      margin: 0;
+      padding: 0;
+  }
+ 
+.card {
+  width: 500px;
+  height: 280px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-family: 'Courier New', Courier, monospace;
+  background: #ffffff;
+  margin: auto;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 5px;
+}
+
+.title img {
+  width: 50px;
+  height: auto;
+}
+
+.emboss {
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin: 5px 0;
+}
+
+.emboss1 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.emboss2 {
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  display: block;
+  margin-top: 10px;
+}
+
+.sep {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 10px;
+}
+
+.photo-container {
+  width: 120px;
+  height: 120px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.photo-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+hr {
+  margin: 10px 0;
+  border: none;
+  border-top: 1px solid #ccc;
+}
+
+small {
+  font-size: 12px;
+  color: #666;
+}
+}
+

@@ -1,0 +1,113 @@
+ 
+ <!-- Main Sidebar Container -->
+ <aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <!-- Brand Logo -->
+  <a href="" class="brand-link">
+  <img  src="images/mlg.png" alt="Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+  <span class="brand-text font-weight-light"><p style="font-size: 16px;">Membership System</p>
+  </span>
+</a>
+<mat-divider></mat-divider>
+
+  <!-- Sidebar -->
+  <div class="sidebar" >
+    <!-- Sidebar user panel (optional) -->
+    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+      <div class="image">
+        <img src="images/2382414.png" class="img-circle elevation-2" alt="User Image">
+      </div>
+      
+      <div class="info">
+        <a href="#" class="d-block">CodeAstro</a>
+      </div>
+      
+    </div>
+    <mat-divider></mat-divider>
+    <!-- Sidebar Menu -->
+    <nav class="mt-2">
+      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <li *ngIf="isAuthenticated" class="nav-item">
+          <a routerLink="/admin/home" class="nav-link">
+            <i class="nav-icon fas fa-tachometer-alt"></i>
+           Dashboard
+          </a>
+        </li>
+        
+        <li class="nav-item has-treeview" >
+          <a class="nav-link" (click)="toggleSubmenu()">
+            <i class="nav-icon fas fa-th-list"></i>
+            
+              Membership Types
+              <i class="fas fa-angle-left right" [ngClass]="{'rotate': isSubmenuOpen}"></i>
+            
+          </a>
+          <ul  class="nav nav-treeview" [style.display]="isSubmenuOpen ? 'block' : 'none'" >
+            <li class="nav-item">
+              <a routerLink="/admin/membertypes/add" class="nav-link">
+                <i class="fas fa-circle-notch nav-icon"></i>
+                Add New
+              </a>
+            </li>
+            <li   class="nav-item">
+              <a routerLink="/admin/membertypes" class="nav-link">
+                <i class="fas fa-circle-notch nav-icon"></i>
+               View and Manage
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li *ngIf="isAuthenticated" class="nav-item">
+          <a routerLink="/admin/members/add" class="nav-link ">
+            <i class="nav-icon fas fa-users"></i>
+            Add Members
+          </a>
+        </li>
+
+        <li *ngIf="isAuthenticated" class="nav-item">
+          <a routerLink="/admin/members/"class="nav-link">
+            <i class="nav-icon fas fa-users-cog"></i>
+           Manage Members
+          </a>
+        </li>
+
+        <li *ngIf="isAuthenticated" class="nav-item">
+          <a routerLink="/admin/renewaltable" class="nav-link ">
+          <i class="nav-icon fas fa-undo"></i>
+            Renewal
+          </a>
+        </li>
+
+        <li *ngIf="isAuthenticated" class="nav-item">
+          <a routerLink="/admin/report"  class="nav-link">
+            <i class="nav-icon fas fa-file-invoice"></i>
+            Membership Report
+          </a>
+        </li>
+
+        <li *ngIf="isAuthenticated" class="nav-item">
+          <a routerLink="/admin/revenuereport"  class="nav-link ">
+            <i class="nav-icon fas fa-money-check"></i>
+           Revenue Report
+          </a>
+        </li>
+
+        <li *ngIf="isAuthenticated" class="nav-item">
+          <a routerLink="/admin/settings" class="nav-link">
+            <i class="nav-icon fas fa-cogs"></i>
+            Settings
+          </a>
+        </li>
+
+        <li *ngIf="isAuthenticated" class="nav-item">
+          <a href="#" (click)="logout()" class="nav-link">
+            <i class="nav-icon fas fa-power-off"></i>
+           Logout
+          </a>
+        </li>
+
+      </ul>
+    </nav>
+    <!-- /.sidebar-menu -->
+  </div>
+  <!-- /.sidebar -->
+</aside>

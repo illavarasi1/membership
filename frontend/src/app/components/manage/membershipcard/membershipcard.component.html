@@ -1,0 +1,48 @@
+<div class="card" id="membershipCard">
+    <div class="title">
+      <span>Membership Card</span>
+   <img [src]="logoUrl" alt="System Logo" width="120"
+   height="120"/>
+    </div>
+  
+    <div class="emboss">
+      <b>system{{ systemName }}</b>
+    </div>
+    
+    <div class="emboss1">
+      <b>#{{ member?.membership_number }}</b>
+    </div>
+    <div class="sep">
+    <div class="emboss">
+      {{ member?.fullname }}
+    </div>
+  
+    <div class="emboss">
+      {{ member?.address }}, {{ member?.postcode }}
+    </div>
+  
+    <div class="emboss">
+      <b>Membership: {{ member?.membership_type?.type || 'N/A' }} </b>
+    </div>
+ 
+    <div *ngIf="member">
+        <!-- Display the photo if available -->
+        <div  class="photo-container" *ngIf="photoUrl; else noPhoto">
+          <img [src]="photoUrl" alt="Member Photo" width="150" height="150" />
+        </div>
+      
+        <!-- Fallback content if no photo is available -->
+        <ng-template #noPhoto>
+          <p>No photo available</p>
+        </ng-template>
+      </div>
+    </div>
+  
+    <div>
+      <hr />
+      <small>
+        <span class="emboss2">Valid till {{ member?.expiry_date | date: 'MMMM d, y' }}</span>
+      </small>
+    </div>
+  </div>
+  

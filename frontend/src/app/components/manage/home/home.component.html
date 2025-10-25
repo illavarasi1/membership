@@ -1,0 +1,186 @@
+<div class="container-fluid mt-4">
+  <div class="row">
+    <!-- Card: Total Members -->
+    <!-- <div class="col-md-4 col-lg-2">
+      <div class="card text-white bg-primary mb-3">
+        <div class="card-body text-center">
+          <i class="fas fa-users fa-2x mb-2"></i>
+          <h5 class="card-title">Total Members</h5>
+          <p class="card-text display-4">9</p>
+        </div>
+      </div>
+    </div> -->
+    <div class="info-card">
+      <div class="info-card-icon bg-primary">
+        <i class="fas fa-users bttn"></i>
+      </div>
+      <div class="info-card-content">
+        <h6>Total Members</h6>
+        <p class="tota fs-6">{{ totalMembers }}</p>
+      </div>
+    </div>
+    
+    <!-- Card: Membership Types -->
+    <!-- <div class="col-md-4 col-lg-2">
+      <div class="card text-white bg-danger mb-3">
+        <div class="card-body text-center">
+          <i class="fas fa-list-alt fa-2x mb-2"></i>
+          <h5 class="card-title">Membership Types</h5>
+          <p class="card-text display-4">7</p>
+        </div>
+      </div>
+    </div> -->
+    <div class="info-card ">
+      <div class="info-card-icon  bg-danger">
+        <i class="fas fa-list bttn"></i>
+      </div>
+      <div class="info-card-content">
+        <h6>Membership Types</h6>
+        <p class="tota fs-6">{{ totalMembershipTypes }}</p>
+      </div>
+    </div>
+    <div class="info-card">
+      <div class="info-card-icon bg-warning">
+        <i class="fas fa-hourglass-half bttn"></i>
+      </div>
+      <div class="info-card-content">
+        <h6>Expire soon</h6>
+        <p class="tota fs-6">{{ expiringSoon }}</p>
+      </div>
+    </div>
+    
+    <!-- Card: Total Revenue -->
+    <!-- <div class="col-md-4 col-lg-2">
+      <div class="card text-white bg-success mb-3">
+        <div class="card-body text-center">
+          <i class="fas fa-dollar-sign fa-2x mb-2"></i>
+          <h5 class="card-title">Total Revenue</h5>
+          <p class="card-text display-4">$12,891</p>
+        </div>
+      </div>
+    </div> -->
+    <div class="info-card ">
+      <div class="info-card-icon bg-success">
+        <i class="fa-solid fa-coins bttn"></i>
+      </div>
+      <div class="info-card-content">
+        <h6>Total Revenue</h6>
+        <p class="tota fs-6">{{totalRevenue }}</p>
+      </div>
+    </div>
+    <!-- Card: New Members -->
+    <!-- <div class="col-md-4 col-lg-2">
+      <div class="card text-white bg-info mb-3">
+        <div class="card-body text-center">
+          <i class="fas fa-user-plus fa-2x mb-2"></i>
+          <h5 class="card-title">New Members</h5>
+          <p class="card-text display-4">0</p>
+        </div>
+      </div>
+    </div> -->
+    <div class="info-card ">
+      <div class="info-card-icon  bg-info">
+        <i class="fas fa-users bttn"></i>
+      </div>
+      <div class="info-card-content">
+        <h6>New Members</h6>
+        <p class="tota fs-6">{{ newMembers }}</p>
+      </div>
+    </div>
+    <!-- Card: Expired Membership -->
+    <!-- <div class="col-md-4 col-lg-2">
+      <div class="card text-white bg-warning mb-3">
+        <div class="card-body text-center">
+          <i class="fas fa-user-times fa-2x mb-2"></i>
+          <h5 class="card-title">Expired Membership</h5>
+          <p class="card-text display-4">6</p>
+        </div>
+      </div>
+    </div>
+  </div> -->
+  <div class="info-card ">
+    <div class="info-card-icon bg-secondary">
+      <i class="fas fa-times bttn"></i>
+    </div>
+    <div class="info-card-content">
+      <h6>Expired Membership</h6>
+      <p class="tota fs-6">{{ expiredMembers }}</p>
+    </div>
+  </div>
+  <!-- Recently Joined Members Section -->
+  <div class="row mt-4">
+    <div class="col-12">
+      <div class="card" *ngIf="!isRemoved && recentMembers.length > 0 ">
+        <div class="card-header d-flex justify-between">
+          <h3>Recently Joined Members</h3>
+          <div class="card-tools">
+            <button type="button" class="btn btn-tool" (click)="toggleCard()">
+              <i [class]="isCollapsed ? 'fas fa-plus' : 'fas fa-minus'"></i>
+            </button>
+            <button type="button" class="btn btn-tool" (click)="removeCard()">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+        </div>
+        <div class="card-body" *ngIf="!isCollapsed">
+          <ul class="list-group products-list product-list-in-card">
+            <li *ngFor="let member of recentMembers" class="member-item list-group-item d-flex justify-content-between align-items-center">
+              
+                <div class="d-flex">
+                  <div>
+                 <img [src]="member.photo" alt="Member Photo">
+                </div>
+                <div  class="d-flex flex-column pl-2">
+                <p class="text-primary hover:text-blue-900 font-bold" >{{ member.fullname }}</p>
+                
+               <p class="numb">Membership Number:{{ member.membership_number }}</p> 
+               </div>
+             </div>
+              <span class="badge bg-dark">  {{ member.membership_type.type || 'N/A' }}</span>
+            </li>
+            <!-- <li class="list-group-item d-flex justify-content-between align-items-center">
+              <div>
+                <h6 class="mb-0"><i class="fas fa-user-circle me-2"></i>Member C</h6>
+                <small>{{ member.membership_number }}
+                </small>
+              </div>
+              <span class="badge bg-secondary">BB Upd</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <div>
+                <h6 class="mb-0"><i class="fas fa-user-circle me-2"></i>Testing Member</h6>
+                <small>Membership Number: CA-519259</small>
+              </div>
+              <span class="badge bg-info">Basic</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <div>
+                <h6 class="mb-0"><i class="fas fa-user-circle me-2"></i>Random Updated</h6>
+                <small>Membership Number: CA-871386</small>
+              </div>
+              <span class="badge bg-warning">Gold</span>
+            </li> -->
+          </ul>
+        </div>
+        <div (click)="viewAllMembers()"  class="card-footer text-center">
+          <a  class="btn btn-link text-decoration-none">View All Members</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<footer class="main-footer bg-light py-3">
+  <div class="container-fluid">
+    <div class="row align-items-center">
+      <!-- Left Content -->
+      <div class="col-md-6 col-12 text-center text-md-start">
+        <strong>&copy; {{ currentYear }} CodeAstro.com</strong> - All rights reserved.
+      </div>
+
+      <!-- Right Content -->
+      <div class="col-md-6 col-12 text-center text-md-end">
+        <b>Developed By</b> <a href="https://codeastro.com/" class="text-primary">CodeAstro</a>
+      </div>
+    </div>
+  </div>
+</footer>

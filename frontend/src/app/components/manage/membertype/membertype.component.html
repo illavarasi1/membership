@@ -1,0 +1,136 @@
+
+<!-- <h1 class="text-2xl font-500 pb-4" style="font-size: 2rem;">{{ title }}</h1> -->
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mt-2  mb-2 d-flex justify-content-between align-items-center">
+      <div class="col-sm-6">
+        <h1 class="m-0 text-dark fs-3 fw-normal">{{ title }}</h1>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb d-flex justify-content-end">
+          <li class="breadcrumb-item text-primary fs-6"><a>Home</a></li>
+          <li class="breadcrumb-item active fs-6">{{ title }}</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+<section class="content">
+  <div class="container-fluid">
+    <!-- Info boxes -->
+    <div class="row">
+    
+    <div class="col-12">
+<div class="card">
+  <div class="card-header bg-white">
+    <h3 class="card-title">Membership Types DataTable</h3>
+</div>
+  <div class="row p-4">
+    <div class="col-md-12">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <div>
+          Show
+          <select class="form-select d-inline-block w-auto" [(ngModel)]="limit"
+          (change)="getServerData()">
+            <option *ngFor="let option of [5, 10, 25, 50]" [value]="option">{{ option }}</option>
+          </select>
+          entries
+        </div>
+        <div class="d-flex">
+          <label class="mt-2 mr-1"for="search">Search:</label>
+          <input
+          type="text"
+          class="form-control"
+         
+          (keyup)="onSearchChange($event)"
+          />
+        </div>
+      </div>
+
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Type</th>
+            <th>Amount</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of dataSource.data; index as i">
+            <!-- <td>{{ getIndex(i) }}</td> -->
+            <td>{{ row._id }}</td>
+            <td>{{ row.type }}</td>
+            <td>{{ row.amount | currency: 'USD':'symbol':'1.2-2'}}</td>
+  
+            <td>
+              <button class="btn btn-sm btn-primary me-2 p-2"   [routerLink]="'/admin/membertypes/' + row._id">
+                <i class='fas fa-edit'></i>  Edit
+              </button>
+              <button class="btn btn-sm btn-danger p-2" (click)="delete(row._id!)">
+                <i class='fas fa-trash'></i> Delete
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="d-flex justify-content-between align-items-center mt-3">
+        <span>Showing {{ startRecord }} to {{ endRecord }} of {{ totalRecords }} entries</span>
+        <nav>
+          <ul class="pagination">
+            <li
+              class="page-item"
+              [class.disabled]="currentPage === 1"
+              (click)="onPageChange(currentPage - 1)"
+            >
+            <a class="page-link" href="javascript:void(0)">Previous</a>
+            </li>
+            <li
+              class="page-item"
+              *ngFor="let page of totalPages"
+              [class.disabled]="currentPage === page"
+              (click)="onPageChange(page)"
+            >
+            <a class="page-link" href="javascript:void(0)">{{ page }}</a>
+            </li>
+            <li
+              class="page-item"
+              [class.disabled]="currentPage === totalPages.length"
+              (click)="onPageChange(currentPage + 1)"
+            >
+            <a class="page-link" href="javascript:void(0)">Next</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</section>
+ <!-- Main Footer -->
+ <!-- <footer class="main-footer">
+  <div class="d-flex justify-content-between">
+<div class="current text-left mb-2 mb-md-0"><strong>&copy; {{ currentYear }} codeastro.com</strong> - All rights reserved.</div>
+<div class="float-right d-none d-sm-inline-block">
+    <b class="current">Developed By</b> <a href="https://codeastro.com/" class="text-primary">CodeAstro</a>
+  </div>
+  </div>
+</footer> -->
+<footer class="main-footer bg-light py-3">
+  <div class="container-fluid">
+    <div class="row align-items-center">
+      <!-- Left Content -->
+      <div class="col-md-6 col-12 text-center text-md-start">
+        <strong>&copy; {{ currentYear }} CodeAstro.com</strong> - All rights reserved.
+      </div>
+
+      <!-- Right Content -->
+      <div class="col-md-6 col-12 text-center text-md-end">
+        <b>Developed By</b> <a href="https://codeastro.com/" class="text-primary">CodeAstro</a>
+      </div>
+    </div>
+  </div>
+</footer>

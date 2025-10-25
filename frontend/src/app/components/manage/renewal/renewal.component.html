@@ -1,0 +1,133 @@
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mt-2  mb-2 d-flex justify-content-between align-items-center">
+      <div class="col-sm-6">
+        <h1 class="m-0 text-dark fs-3 fw-normal">RenewMembership</h1>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb d-flex justify-content-end">
+          <li class="breadcrumb-item text-primary fs-6"><a>Home</a></li>
+          <li class="breadcrumb-item active fs-6">RenewMembership</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container mt-4">
+  <div class="card">
+    <div class="card-header bg-primary text-white">
+      <i class="fas fa-file-alt"></i> Renew Membership Form
+    </div>
+
+      <form (ngSubmit)="submitRenewal()" #form="ngForm">
+        <div class="card-body">
+          <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="fullname" class="form-label fw-bold">Fullname</label>
+            <input
+            type="text"
+            id="fullName"
+            class="form-control"
+            [(ngModel)]="member!.fullname" 
+            name="fullname"
+            placeholder="Full Name"
+          disabled
+          />
+            
+          </div>
+          <div class="col-md-6">
+            <label for="membershipNumber" class="form-label fw-bold">Membership Number</label>
+            <input
+            type="text"
+            id="membershipNumber"
+            class="form-control"
+            [(ngModel)]="member!.membership_number" 
+            name="membership_number"
+            placeholder="Membership Number"
+           disabled
+          />
+            
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="membershipType" class="form-label fw-bold">Membership Type</label>
+            <select
+              class="form-select"
+              id="membershipType"
+              name="membershipType"
+              required
+              [(ngModel)]="selectedMembershipType"
+              (change)="onMembershipTypeChange()"
+              [ngClass]="{'is-invalid': !selectedMembershipType && form.submitted}"
+            >
+              <option value="" disabled>Select Membership Type</option>
+              <option *ngFor="let type of membershipTypes" [value]="type._id">
+                {{ type.type }} - ${{ type.amount }}
+              </option>
+            </select>
+            <div *ngIf="selectedMembershipDetails">
+              <h4>Membership Details</h4>
+              <p>Type: {{ selectedMembershipDetails.type }}</p>
+              <p>Amount: ${{ selectedMembershipDetails.amount }}</p>
+            </div>
+            <div *ngIf="!selectedMembershipType && form.submitted" class="text-danger">
+              Membership Type is required.
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="renewalDuration" class="form-label fw-bold">Renew Upto</label>
+            <select id="extend" class="form-control" [(ngModel)]="renewalDuration" name="extend"  (change)="onMembershipTypeChange()" required>
+              <option value="1">One Month</option>
+              <option value="3">Three Months</option>
+              <option value="6">Six Months</option>
+              <option value="12">One Year</option>
+            </select>
+          </div>
+        </div>
+          <!-- Display the calculated expiry date -->
+          <!-- <div>
+            <label>New Expiry Date</label>
+            <input type="text" [value]="newExpiryDate | date:'yyyy-MM-dd'" disabled />
+          </div> -->
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="totalAmount" class="form-label fw-bold">Total Amount</label>
+            <div class="input-group">
+              <span class="input-group-text">$</span>
+              <input
+              type="text"
+              class="form-control"
+              id="totalAmount"
+              [value]="totalAmount"  
+              disabled
+            />
+            </div>
+          </div>
+        </div>
+       
+    
+    </div>
+    <div class="card-footer bg-gray-50 p-2">
+      <button type="submit" class="btn btn-primary ">
+        Submit
+      </button>
+    </div>
+  </form>
+  </div>
+</div>
+<footer class="main-footer bg-light py-3">
+  <div class="container-fluid">
+    <div class="row align-items-center">
+      <!-- Left Content -->
+      <div class="col-md-6 col-12 text-center text-md-start">
+        <strong>&copy; {{ currentYear }} CodeAstro.com</strong> - All rights reserved.
+      </div>
+
+      <!-- Right Content -->
+      <div class="col-md-6 col-12 text-center text-md-end">
+        <b>Developed By</b> <a href="https://codeastro.com/" class="text-primary">CodeAstro</a>
+      </div>
+    </div>
+  </div>
+</footer>
